@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Composer Quiz App</title>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div style="float: right">
+                    <button class='btn btn-danger' onclick='deleteQuestion(questionArray[questionIndex])'> Delete Question</button>
+                    <button class='btn btn-warning' onclick='modal.showEdit(questionArray[questionIndex])'> Edit Question</button>
+                    <button class='btn btn-info' onclick='modal.show()'> Create Question </button>
+                </div>
+                <div class="jumbotron" style="margin-top: 10px;">
+                    <h1>
+                        Name the Composer Quiz
+                    </h1>
+                    <p>
+                        Please select the correct classical music composer.
+                    </p>
+                    <p>
+                        <button class="btn btn-primary btn-large" onclick="startOver()">Start</button>
+                        <button class="btn btn-primary btn-large" onclick="evaluateAnswer(questionIndex); drawTableAnswers();">Check Answer</button>
+                        <button class="btn btn-primary btn-large" onclick="getOneQuestion(questionArray[questionIndex]);">Next</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--Progress Bar-->
+        <div class="progress" id="progressBar">
+        </div>
+        <!---------------->
+        <div class="row clearfix">
+            <div class="col-md-12 column" id="currentQuestionDiv">
+                <h3>&nbsp;&nbsp;<i class="fa fa-cog fa-spin"></i> Loading... </h3>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-12 column" id="summaryDiv">
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-12" id="alertDiv">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal starts here-->
+    <div class="modal fade" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Create a New Question</h4>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">New Question</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="newQuestion" placeholder="Question">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Correct Answer</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="correctAnswer" placeholder="Correct Answer">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Wrong Answer #1</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="wrongAnswer1" placeholder="Answer">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Wrong Answer #2</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="wrongAnswer2" placeholder="Answer">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Wrong Answer #3</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="wrongAnswer3" placeholder="Answer">
+                        </div>
+                    </div>
+                    <div class="modal-footer" id="modal-buttons">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="modal.saveQuestion()" id="save-button">Save</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <script src="../Scripts/jquery-1.10.2.js"></script>
+        <script src="../Scripts/bootstrap.js"></script>
+        <script src="../App/Script.js"></script>
+</body>
+</html>
